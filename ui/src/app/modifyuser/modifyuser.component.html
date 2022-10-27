@@ -1,0 +1,16 @@
+<div class="form_wrapper d-flex">
+    <div>
+        <mat-card>
+            <h3>Cập nhật thông tin nhân viên công ty</h3>
+            <mat-form-field appearance="fill" class="full-width ">
+                <mat-label>Họ tên</mat-label>
+                <input matInput [(ngModel)]="user.UserName">
+            </mat-form-field>
+
+            <app-selectposition (newItemEvent)="onSelectPosition($event)" ></app-selectposition>
+            <app-selectsupervisor (newItemEvent)="onSelectSup($event)"></app-selectsupervisor>
+            <button mat-raised-button color="primary" (click)="update()">Cập nhật</button>
+
+        </mat-card>
+    </div>
+</div>

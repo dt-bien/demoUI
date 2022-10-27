@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill" class="full-width ">
+    <mat-label>Chức vụ</mat-label>
+    <mat-select   [formControl]="searchControl">
+      <mat-option *ngFor="let item of data_lst" [value]="item">
+        {{item.PositionName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>

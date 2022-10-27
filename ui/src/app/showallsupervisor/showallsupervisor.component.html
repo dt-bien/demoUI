@@ -1,0 +1,80 @@
+<app-add-user></app-add-user>
+
+<div class="showdata">
+    <mat-card>
+
+        <mat-form-field appearance="fill" class=" ">
+            <mat-label>Chọn nhân viên</mat-label>
+            <mat-select [(ngModel)]="selected_user">
+                <mat-option *ngFor="let item of data_lst" [value]="item">
+                    {{item.UserName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br />
+        
+        <button mat-raised-button color="warn" (click)="delete()">Xóa</button>
+        <span class="mgr10"></span>
+        <button mat-raised-button color="accent" [routerLink]="['/modifyuser']"  [queryParams]="{ id: selected_user.Id}">Sửa</button>
+        <span class="mgr10"></span>
+        <button mat-raised-button color="primary" (click)="onChange()">Xem</button>
+        <div class="space10"></div>
+        <div>
+
+            <div>
+                <h3><b> Thông tin cơ bản </b></h3>
+                <div *ngIf="selected_user" style="line-height: 1.8rem;">
+                    <b> Họ tên: </b>{{selected_user.UserName}} <br />
+                    <b> Ngày tạo: </b>{{selected_user.CreatedAt}} <br />
+                    <b> Chức vụ: </b> <span *ngIf="position">{{position.PositionName}}</span> 
+                </div>
+            </div>
+
+            <div class="space10"></div>
+            <mat-divider></mat-divider>
+
+
+            <div>
+               <b>Cấp trên</b>
+               <div class="space10"></div>
+                <div *ngIf="data_related_member">
+                    <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal">
+                        <mat-chip class="example-box" cdkDrag *ngFor="let item of data_related_member.Supervisor">
+                            {{item.UserName}}
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+
+            </div>
+            <div class="space10"></div>
+
+            <mat-divider></mat-divider>
+
+            <div>
+                <b>Nhân viên</b>
+                <div class="space10"></div>
+                <div *ngIf="data_related_member">
+                    <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal">
+                        <mat-chip class="example-box" cdkDrag *ngFor="let item of data_related_member.Member">
+                            {{item.UserName}}
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        <!-- <div *ngIf="selected_user">
+            {{selected_user.UserName}}
+          </div> -->
+
+
+    </mat-card>
+</div>

@@ -1,0 +1,19 @@
+<div class="form_wrapper">
+    <div>
+        <mat-card>
+            <h3>Thêm nhân viên công ty</h3>
+            <mat-form-field appearance="fill" class="full-width ">
+                <mat-label>Họ tên</mat-label>
+                <input matInput [(ngModel)]="user.UserName">
+            </mat-form-field>
+
+            <app-selectposition (newItemEvent)="onSelectPosition($event)" ></app-selectposition>
+            <app-selectsupervisor (newItemEvent)="onSelectSup($event)"></app-selectsupervisor>
+            <button mat-raised-button color="primary" (click)="onSave()">Thêm</button>
+
+        </mat-card>
+    </div>
+
+
+
+</div>

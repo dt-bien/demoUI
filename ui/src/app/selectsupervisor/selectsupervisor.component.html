@@ -1,0 +1,9 @@
+
+  <mat-form-field appearance="fill" class="full-width ">
+    <mat-label>Quản lý trực tiếp</mat-label>
+    <mat-select  [formControl]="searchControl">
+      <mat-option *ngFor="let item of data_lst" [value]="item">
+        {{item.UserName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
